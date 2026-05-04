@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms, Privacy & Refund Policy — UK Job Accelerator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #f8f7f4;
+      --cream: #f0ede6;
+      --gold: #c8922a;
+      --gold-light: #e8b84b;
+      --mid: #6b6560;
+      --border: #ddd8cf;
+      --navy: #012169;
+    }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .legal-header {
+      background: var(--black);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(200,146,42,0.2);
+    }
+    .brand {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-light);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .back-link {
+      font-size: 11px;
+      color: #5a5450;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold-light); }
+
+    /* ── TOC BAND ── */
+    .toc-band {
+      background: var(--navy);
+      color: var(--white);
+      padding: 32px;
+    }
+    .toc-inner { max-width: 760px; margin: 0 auto; }
+    .toc-band h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .toc-meta {
+      font-size: 11px;
+      color: #a8b8d8;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+    .toc-list li { font-size: 13px; }
+    .toc-list a {
+      color: #a8b8d8;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.2s;
+    }
+    .toc-list a:hover { color: var(--gold-light); }
+    .toc-list .toc-num {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 15px;
+      min-width: 20px;
+    }
+
+    /* ── LEGAL CONTENT ── */
+    .legal-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .legal-section {
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-section:last-child { border-bottom: none; }
+    .section-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .legal-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .legal-section h3 {
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 24px 0 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .legal-section p {
+      font-size: 14px;
+      color: #4a4540;
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+    .legal-section ul {
+      list-style: none;
+      margin: 12px 0 16px;
+    }
+    .legal-section ul li {
+      font-size: 14px;
+      color: #4a4540;
+      padding: 6px 0 6px 20px;
+      border-bottom: 1px solid #f0ede6;
+      line-height: 1.65;
+      position: relative;
+    }
+    .legal-section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── REFUND HIGHLIGHT BOX ── */
+    .refund-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      padding: 24px 28px;
+      margin: 24px 0;
+    }
+    .refund-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 12px;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--black);
+    }
+    .refund-box p {
+      font-size: 14px;
+      color: #4a4540;
+      margin-bottom: 10px;
+      line-height: 1.75;
+    }
+    .refund-box p:last-child { margin-bottom: 0; }
+
+    /* ── CONTACT BOX ── */
+    .contact-box {
+      background: var(--navy);
+      color: var(--white);
+      padding: 24px 28px;
+      margin-top: 24px;
+    }
+    .contact-box p { color: #a8b8d8; font-size: 13px; margin-bottom: 8px; }
+    .contact-box a { color: var(--gold-light); text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    .legal-footer {
+      background: var(--black);
+      color: #3a3530;
+      text-align: center;
+      padding: 28px 32px;
+      font-size: 11px;
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+    }
+    .legal-footer a { color: #4a4540; text-decoration: none; }
+    .legal-footer a:hover { color: var(--gold-light); }
+  </style>
+</head>
+<body>
+
+<div class="legal-header">
+  <div class="brand">HR Mastery · UK Job Accelerator</div>
+  <a href="index.html" class="back-link">← Back to site</a>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc-band">
+  <div class="toc-inner">
+    <h1>Terms, Privacy &amp; Refund Policy</h1>
+    <div class="toc-meta">Digilinx Advisory · A Division of Digilinx Incorporated · Last updated: 2025</div>
+    <ul class="toc-list">
+      <li><a href="#about"><span class="toc-num">1.</span> About Digilinx Advisory</a></li>
+      <li><a href="#disclaimer"><span class="toc-num">2.</span> Product Disclaimer</a></li>
+      <li><a href="#refund"><span class="toc-num">3.</span> Refund &amp; 90-Day Guarantee Policy</a></li>
+      <li><a href="#confidentiality"><span class="toc-num">4.</span> Confidentiality &amp; Data Use</a></li>
+      <li><a href="#privacy"><span class="toc-num">5.</span> Privacy Policy — UK GDPR</a></li>
+      <li><a href="#terms"><span class="toc-num">6.</span> Terms of Service</a></li>
+      <li><a href="#contact-data"><span class="toc-num">7.</span> Contact &amp; Data Requests</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="legal-body">
+
+  <!-- 1. ABOUT -->
+  <div class="legal-section" id="about">
+    <span class="section-num">Section 1</span>
+    <h2>About Digilinx Advisory</h2>
+    <p>The UK Job Accelerator System is a product of <strong>Digilinx Advisory, a Division of Digilinx Incorporated</strong>. Digilinx Advisory provides digital career optimisation tools and advisory resources for job seekers in the United Kingdom and internationally.</p>
+    <p>All purchases, data processing, and delivery of the UK Job Accelerator System are managed by Digilinx Advisory. Our products are digital in nature and delivered electronically following purchase and CV submission.</p>
+  </div>
+
+  <!-- 2. DISCLAIMER -->
+  <div class="legal-section" id="disclaimer">
+    <span class="section-num">Section 2</span>
+    <h2>Product Disclaimer</h2>
+    <p>The UK Job Accelerator System is an <strong>optimisation tool</strong>. It provides structured prompts, keyword frameworks, and guidance designed to improve the visibility and quality of your CV and LinkedIn profile in the UK job market.</p>
+
+    <h3>What this product is</h3>
+    <ul>
+      <li>A system of AI optimisation prompts and templates for CV and LinkedIn improvement</li>
+      <li>A UK recruiter keyword engine for ATS visibility</li>
+      <li>A job application scripting framework</li>
+      <li>A resource built from 20+ years of UK talent acquisition experience</li>
+    </ul>
+
+    <h3>What this product is not</h3>
+    <ul>
+      <li>A guarantee of employment or job placement</li>
+      <li>A regulated careers advisory or employment agency service</li>
+      <li>A CV writing service performed by a human professional</li>
+      <li>A recruitment or headhunting service</li>
+    </ul>
+
+    <p>Results vary based on individual circumstances including industry, experience level, target role, geographic location, UK job market conditions, and the quality and consistency of the buyer's application activity. Digilinx Advisory makes no guarantee of specific employment outcomes.</p>
+    <p>The buyer is solely responsible for the accuracy, truthfulness, and completeness of all information submitted through our intake form. Digilinx Advisory accepts no liability for inaccurate or misleading information submitted by buyers.</p>
+  </div>
+
+  <!-- 3. REFUND -->
+  <div class="legal-section" id="refund">
+    <span class="section-num">Section 3</span>
+    <h2>Refund &amp; 90-Day Guarantee Policy</h2>
+    <p>Digilinx Advisory stands behind the UK Job Accelerator System with a full money-back guarantee, subject to the conditions below. We are confident in the system because it is built from the actual logic used to screen and place over 1,200 candidates across 20+ years of UK hiring.</p>
+
+    <div class="refund-box">
+      <h3>Full Money-Back Guarantee — 90 Days</h3>
+      <p><strong>If you apply consistently using the system and do not receive a single interview within 90 days of purchase, we will refund your payment in full. No quibble.</strong></p>
+      <p>The UK recruitment cycle typically runs 60–90 days to fill a vacancy, depending on role type, industry, and location. The 90-day window is set deliberately to align with this reality — it is a fair and generous timeframe, not a barrier.</p>
+    </div>
+
+    <h3>Guarantee Conditions</h3>
+    <ul>
+      <li><strong>Timeframe:</strong> Refund request must be submitted within 90 days of the original purchase date.</li>
+      <li><strong>Application volume:</strong> The buyer must have made a minimum of 21 relevant, documented job applications per 7-day period throughout the 90-day window. This accounts for all working patterns including shift workers, weekend workers, and varied schedules — 7 calendar days is the unit, not working days.</li>
+      <li><strong>Relevance standard:</strong> Applications must be reasonably matched to the buyer's professional background, experience level, and target role. Common sense applies — applications to roles entirely unrelated to the buyer's background and qualifications do not qualify toward the count. For example, a professional targeting logistics management roles would not qualify through applications to medical or legal positions.</li>
+      <li><strong>Documentation:</strong> The buyer must submit an application log with their refund request. A simple spreadsheet or list showing company name, job title, date applied, and platform used is sufficient. No elaborate records are required.</li>
+      <li><strong>Outcome condition:</strong> Zero interviews received within the 90-day period despite meeting all conditions above.</li>
+    </ul>
+
+    <h3>Refund Process</h3>
+    <ul>
+      <li>Submit your refund request via the Contact form on our site or by WhatsApp</li>
+      <li>Attach or share your application log</li>
+      <li>We review your request and respond within 3 business days</li>
+      <li>Approved refunds are processed within 7 days back to your original payment method via PayFast</li>
+    </ul>
+
+    <h3>Non-qualifying refund scenarios</h3>
+    <ul>
+      <li>Refund requests submitted after 90 days from purchase date</li>
+      <li>Refund requests without a documented application log</li>
+      <li>Applications not reasonably relevant to the buyer's target role and experience level</li>
+      <li>Fewer than 21 documented applications per 7-day period</li>
+    </ul>
+  </div>
+
+  <!-- 4. CONFIDENTIALITY -->
+  <div class="legal-section" id="confidentiality">
+    <span class="section-num">Section 4</span>
+    <h2>Confidentiality &amp; Data Use</h2>
+    <p>Your CV content, employment history, LinkedIn profile, and all information submitted through our intake form is treated as <strong>strictly confidential</strong>.</p>
+
+    <h3>How your data is used</h3>
+    <ul>
+      <li>Solely to deliver your UK Job Accelerator optimisation materials</li>
+      <li>To respond to your queries and support requests</li>
+      <li>For quality review by Digilinx Advisory — human-in-loop review may occur to ensure delivery accuracy</li>
+    </ul>
+
+    <h3>What we do not do with your data</h3>
+    <ul>
+      <li>We do not sell your data to any third party</li>
+      <li>We do not share your data with recruiters, employers, or third-party services</li>
+      <li>We do not use your CV data for AI model training</li>
+      <li>We do not retain your CV or personal submission data beyond 7 days of delivery</li>
+    </ul>
+
+    <h3>Retention</h3>
+    <p>All CV submission data is deleted within 7 days of delivery of your optimised materials. Contact and transactional records (name, email, payment reference) may be retained for up to 12 months for support and refund purposes, after which they are permanently deleted.</p>
+  </div>
+
+  <!-- 5. PRIVACY -->
+  <div class="legal-section" id="privacy">
+    <span class="section-num">Section 5</span>
+    <h2>Privacy Policy — UK GDPR</h2>
+    <p>Digilinx Advisory is committed to protecting the privacy of UK buyers. As our products are sold to UK residents, UK GDPR applies to our processing of personal data, regardless of our operational base in South Africa.</p>
+
+    <h3>Data controller</h3>
+    <p>Digilinx Advisory, a Division of Digilinx Incorporated, is the data controller for all personal data collected through the UK Job Accelerator System.</p>
+
+    <h3>What personal data we collect</h3>
+    <ul>
+      <li>Full name and email address — collected via our JotForm intake and contact forms</li>
+      <li>PayFast payment reference — for purchase verification</li>
+      <li>Current and target job title — for optimisation context</li>
+      <li>Employment history (last 3 roles) — for CV optimisation</li>
+      <li>LinkedIn profile URL — for LinkedIn restructuring guidance</li>
+      <li>Voluntary information about job search challenges — optional intake field</li>
+    </ul>
+
+    <h3>Legal basis for processing</h3>
+    <p>We process personal data on the legal basis of <strong>contract performance</strong> — the data is necessary to deliver the product you have purchased. For contact enquiries, we process on the basis of <strong>legitimate interests</strong>.</p>
+
+    <h3>Your rights under UK GDPR</h3>
+    <ul>
+      <li>Right to access — request a copy of the personal data we hold about you</li>
+      <li>Right to erasure — request deletion of your personal data at any time</li>
+      <li>Right to rectification — request correction of inaccurate data</li>
+      <li>Right to restrict processing — request that we limit how we use your data</li>
+      <li>Right to data portability — request your data in a portable format</li>
+    </ul>
+    <p>To exercise any of these rights, contact us via the details in Section 7. We will respond within 30 days.</p>
+
+    <h3>Third-party processors</h3>
+    <p>We use the following sub-processors to operate our service:</p>
+    <ul>
+      <li><strong>JotForm</strong> — form collection and intake (GDPR compliant)</li>
+      <li><strong>PayFast</strong> — payment processing (PCI DSS compliant)</li>
+      <li><strong>GitHub Pages</strong> — static site hosting (Microsoft/GitHub)</li>
+    </ul>
+    <p>We do not use any advertising platforms, remarketing tools, or third-party analytics services that process personal data on this site.</p>
+
+    <h3>Cookies</h3>
+    <p>This site does not use tracking or advertising cookies. JotForm embeds may set functional cookies necessary for form operation. No personal data is transmitted to advertising networks.</p>
+  </div>
+
+  <!-- 6. TERMS -->
+  <div class="legal-section" id="terms">
+    <span class="section-num">Section 6</span>
+    <h2>Terms of Service</h2>
+
+    <h3>Purchase and access</h3>
+    <p>By completing a purchase, the buyer receives a non-exclusive, non-transferable licence to use the UK Job Accelerator System materials for personal job search purposes only. The materials may not be resold, redistributed, or shared with third parties.</p>
+
+    <h3>Delivery</h3>
+    <p>Optimised materials are delivered digitally within 24 hours of the buyer completing the CV intake form on the success page following purchase. Delivery is conditional on the buyer submitting all required intake form fields.</p>
+
+    <h3>Intellectual property</h3>
+    <p>All system content, templates, prompts, keyword frameworks, and materials remain the intellectual property of Digilinx Advisory. Purchase grants personal use rights only.</p>
+
+    <h3>Limitation of liability</h3>
+    <p>Digilinx Advisory's total liability to any buyer shall not exceed the amount paid for the product. We are not liable for any indirect, consequential, or employment-related losses arising from use of the system.</p>
+
+    <h3>Governing law</h3>
+    <p>These terms are governed by the laws of South Africa. For buyers in the United Kingdom, UK consumer protection rights are preserved and are not affected by this clause.</p>
+
+    <h3>Changes to these terms</h3>
+    <p>We may update these terms from time to time. The version in effect at the time of your purchase applies to your transaction. Continued use of the site constitutes acceptance of the current terms.</p>
+  </div>
+
+  <!-- 7. CONTACT -->
+  <div class="legal-section" id="contact-data">
+    <span class="section-num">Section 7</span>
+    <h2>Contact &amp; Data Requests</h2>
+    <p>For all queries including data requests, refund enquiries, or support — contact us through any of the following:</p>
+    <div class="contact-box">
+      <p><strong style="color:#fff;">Digilinx Advisory</strong><br>A Division of Digilinx Incorporated</p>
+      <p>Contact form: <a href="index.html#contact">hr-mastery.github.io/uk-job-accelerator#contact</a></p>
+      <p>WhatsApp: <a href="https://wa.me/27601061910" target="_blank">+27 060 106 1910</a></p>
+      <p style="margin-top:14px; font-size:12px; color:#6a7a9a;">We respond to all enquiries within 1 business day. Data requests are handled within 30 days in accordance with UK GDPR.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="legal-footer">
+  <p>© 2025 Digilinx Advisory, a Division of Digilinx Incorporated. All rights reserved.</p>
+  <p style="margin-top:6px;">
+    <a href="index.html">← Back to UK Job Accelerator</a>
+    &nbsp;·&nbsp;
+    <a href="https://wa.me/27601061910" target="_blank">WhatsApp</a>
+  </p>
+</div>
+
+</body>
+</html>
