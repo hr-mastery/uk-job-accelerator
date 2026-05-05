@@ -9,8 +9,10 @@
         :root {
             --navy: #0a1628;
             --navy-light: #111d32;
-            --gold: #c9a227;
-            --gold-light: #e8d5a3;
+            --orange: #df7600;
+            --orange-light: #ce6901;
+            --teal: #017161;
+            --cream: #f0d8be;
             --white: #ffffff;
             --gray: #8892a0;
             --success: #10b981;
@@ -35,7 +37,7 @@
 
         .success-card {
             background: var(--navy-light);
-            border: 1px solid rgba(201,162,39,0.2);
+            border: 1px solid rgba(223,118,0,0.2);
             border-radius: 20px;
             padding: 3rem;
             max-width: 600px;
@@ -53,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--success));
+            background: linear-gradient(90deg, var(--orange), var(--teal));
         }
 
         @keyframes slideUp {
@@ -96,7 +98,7 @@
         }
 
         .highlight {
-            color: var(--gold);
+            color: var(--orange);
         }
 
         p {
@@ -106,8 +108,8 @@
         }
 
         .urgency-box {
-            background: rgba(239,68,68,0.1);
-            border: 1px solid rgba(239,68,68,0.2);
+            background: rgba(211,42,0,0.1);
+            border: 1px solid rgba(211,42,0,0.2);
             border-radius: 12px;
             padding: 1.25rem;
             margin: 1.5rem 0;
@@ -131,8 +133,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--orange);
+            color: var(--white);
             padding: 1rem 2.5rem;
             border-radius: 8px;
             font-weight: 700;
@@ -141,13 +143,14 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(201,162,39,0.3);
+            box-shadow: 0 4px 20px rgba(223,118,0,0.3);
             margin: 1rem 0;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(201,162,39,0.4);
+            box-shadow: 0 8px 30px rgba(223,118,0,0.4);
+            background: var(--orange-light);
         }
 
         .steps {
@@ -169,8 +172,8 @@
         .step-number {
             width: 28px;
             height: 28px;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--orange);
+            color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
