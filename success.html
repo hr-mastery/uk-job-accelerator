@@ -1,47 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Application Confirmed</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmed — UK Job Accelerator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #111d32;
+            --gold: #c9a227;
+            --gold-light: #e8d5a3;
+            --white: #ffffff;
+            --gray: #8892a0;
+            --success: #10b981;
+        }
 
-  <script>
-    // Basic payment gate
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("paid") !== "true") {
-      window.location.href = "index.html";
-    }
-  </script>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    body { font-family: Arial; text-align: center; padding: 40px; }
-    .container { max-width: 600px; margin: auto; }
-    h1 { color: #0a7f2e; }
-    a.button {
-      display: inline-block;
-      padding: 15px 25px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      margin-top: 20px;
-    }
-  </style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .success-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(201,162,39,0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--success));
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(16,185,129,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            animation: scaleIn 0.6s ease-out 0.3s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: var(--gold);
+        }
+
+        p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .urgency-box {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.2);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .urgency-box h3 {
+            color: #fca5a5;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .urgency-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(201,162,39,0.3);
+            margin: 1rem 0;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201,162,39,0.4);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .step.active {
+            color: var(--white);
+        }
+
+        .security-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .jotform-agent {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <h1>✔ Payment Confirmed</h1>
-    <p>Your access to the UK Job Accelerator is now active.</p>
+    <div class="success-card">
+        <div class="success-icon">✓</div>
+        <h1>Payment <span class="highlight">Confirmed</span></h1>
+        <p>Your access to the UK Job Accelerator is now active. Welcome to the May 2026 cohort.</p>
+        
+        <div class="steps">
+            <div class="step active">
+                <div class="step-number">1</div>
+                Payment
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                CV Intake
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                Delivery
+            </div>
+        </div>
 
-    <p><strong>Next step:</strong> Complete your CV intake so we can optimise your application.</p>
+        <div class="urgency-box">
+            <h3>⚡ Action Required</h3>
+            <p>You must complete your CV intake within <strong>24 hours</strong> to secure your slot in this cohort. Delayed submissions may be moved to the next available batch.</p>
+        </div>
 
-    <a class="button" href="https://form.jotform.com/261214514433043">
-      Complete CV Intake
-    </a>
+        <a href="https://form.jotform.com/261214514433043" class="btn-primary">
+            Complete CV Intake Now →
+        </a>
 
-    <p style="margin-top:30px;font-size:12px;">
-      You must complete this step for your application to be processed.
-    </p>
-  </div>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">
+            The intake form takes approximately <strong>8–12 minutes</strong> to complete.
+        </p>
+
+        <div class="security-note">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+            SSL-encrypted • GDPR compliant • 7-day data deletion
+        </div>
+    </div>
+
+    <!-- JotForm AI Agent -->
+    <div class="jotform-agent">
+        <script src='https://cdn.jotfor.ms/agent/embedjs/019de954df42729fa44e9d44f1af9307deae/embed.js'></script>
+    </div>
 </body>
 </html>
