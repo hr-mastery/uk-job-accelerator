@@ -1,50 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Application Not Complete</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Application — UK Job Accelerator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #111d32;
+            --orange: #df7600;
+            --orange-light: #ce6901;
+            --orange-deep: #d32a00;
+            --cream: #f0d8be;
+            --white: #ffffff;
+            --gray: #8892a0;
+        }
 
-  <style>
-    body { font-family: Arial; text-align: center; padding: 40px; }
-    .container { max-width: 600px; margin: auto; }
-    h1 { color: #b00020; }
-    a.button {
-      display: inline-block;
-      padding: 15px 25px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      margin-top: 20px;
-    }
-  </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .cancel-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(211,42,0,0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .warning-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(211,42,0,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: var(--orange);
+        }
+
+        p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits {
+            text-align: left;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .benefits h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+
+        .benefits ul {
+            list-style: none;
+        }
+
+        .benefits li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .benefits li::before {
+            content: '✓';
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .urgency-text {
+            color: #fca5a5;
+            font-weight: 600;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--orange);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(223,118,0,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(223,118,0,0.4);
+            background: var(--orange-light);
+        }
+
+        .secondary-option {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .secondary-option a {
+            color: var(--cream);
+            text-decoration: underline;
+        }
+
+        .price-reminder {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--orange);
+            margin: 1rem 0;
+        }
+
+        .jotform-agent {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <h1>⚠️ Your Application Is Not Complete</h1>
+    <div class="cancel-card">
+        <div class="warning-icon">⚠</div>
+        <h1>Your Application Is <span class="highlight">Incomplete</span></h1>
+        <p>You were one step away from entering the UK Job Accelerator. Your slot is still reserved — but not for long.</p>
+        
+        <div class="benefits">
+            <h3>What You're About to Miss</h3>
+            <ul>
+                <li>UK-standard CV restructuring</li>
+                <li>ATS optimisation for your target roles</li>
+                <li>Recruiter-focused formatting</li>
+                <li>90-day interview guarantee</li>
+            </ul>
+        </div>
 
-    <p>You were one step away from entering the UK Job Accelerator.</p>
+        <div class="price-reminder">Only £39 — One-time payment</div>
 
-    <p><strong>Your slot is still reserved — but not for long.</strong></p>
+        <p class="urgency-text">⏰ Slots in the May 2026 cohort are filling fast</p>
 
-    <ul style="text-align:left;">
-      <li>✔ UK-standard CV restructuring</li>
-      <li>✔ ATS optimisation</li>
-      <li>✔ Recruiter-focused formatting</li>
-    </ul>
+        <a href="index.html#pay" class="btn-primary">
+            Return to Secure Payment →
+        </a>
 
-    <p><strong>Don’t lose your progress.</strong></p>
+        <div class="secondary-option">
+            <p>Questions? <a href="#" onclick="document.querySelector('.jotform-agent iframe').style.display='block'; return false;">Chat with our AI advisor</a> or <a href="https://form.jotform.com/261214425356048">contact us</a></p>
+        </div>
+    </div>
 
-    <a class="button" href="index.html">
-      Return to Secure Payment
-    </a>
-
-    <hr style="margin:30px 0;">
-
-    <p style="font-size:12px;">
-      This system is designed for serious applicants targeting UK roles — not general job browsing.
-    </p>
-  </div>
+    <!-- JotForm AI Agent -->
+    <div class="jotform-agent">
+        <script src='https://cdn.jotfor.ms/agent/embedjs/019de954df42729fa44e9d44f1af9307deae/embed.js'></script>
+    </div>
 </body>
 </html>
