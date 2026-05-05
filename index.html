@@ -10,8 +10,12 @@
         :root {
             --navy: #0a1628;
             --navy-light: #111d32;
-            --gold: #c9a227;
-            --gold-light: #e8d5a3;
+            --orange: #df7600;
+            --orange-light: #ce6901;
+            --orange-deep: #d32a00;
+            --orange-bright: #d6320d;
+            --teal: #017161;
+            --cream: #f0d8be;
             --white: #ffffff;
             --gray: #8892a0;
             --light-gray: #f0f2f5;
@@ -36,14 +40,16 @@
             overflow-x: hidden;
         }
 
-        /* Hero Carousel Background */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding: 2rem 1rem;
         }
 
         .hero-bg {
@@ -68,7 +74,7 @@
         }
 
         .hero-bg img.active {
-            opacity: 0.35;
+            opacity: 0.3;
             transform: scale(1);
         }
 
@@ -78,15 +84,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.8) 50%, rgba(17,29,50,0.9) 100%);
+            background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.85) 50%, rgba(17,29,50,0.92) 100%);
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
+            max-width: 900px;
             text-align: center;
             animation: fadeInUp 1s ease-out;
         }
@@ -104,9 +109,9 @@
 
         .badge {
             display: inline-block;
-            background: rgba(201,162,39,0.15);
-            border: 1px solid var(--gold);
-            color: var(--gold-light);
+            background: rgba(223,118,0,0.15);
+            border: 1px solid var(--orange);
+            color: var(--cream);
             padding: 0.5rem 1.25rem;
             border-radius: 50px;
             font-size: 0.85rem;
@@ -118,8 +123,8 @@
         }
 
         @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(201,162,39,0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(223,118,0,0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(223,118,0,0); }
         }
 
         h1 {
@@ -131,7 +136,7 @@
         }
 
         h1 span {
-            color: var(--gold);
+            color: var(--orange);
             position: relative;
         }
 
@@ -139,8 +144,126 @@
             font-size: clamp(1.1rem, 2.5vw, 1.35rem);
             color: var(--gray);
             max-width: 600px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 2rem;
             line-height: 1.7;
+        }
+
+        /* CV Transformation Visual */
+        .cv-transform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            flex-wrap: wrap;
+        }
+
+        .cv-card {
+            width: 220px;
+            height: 280px;
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .cv-card.before {
+            background: #1a1a2e;
+            border: 2px solid #333;
+            transform: rotate(-3deg);
+        }
+
+        .cv-card.after {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
+            border: 2px solid var(--orange-light);
+            transform: rotate(2deg);
+            box-shadow: 0 20px 60px rgba(223,118,0,0.3);
+        }
+
+        .cv-card:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .cv-header {
+            height: 8px;
+            background: #444;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            width: 60%;
+        }
+
+        .cv-card.after .cv-header {
+            background: var(--cream);
+        }
+
+        .cv-line {
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            margin-bottom: 0.6rem;
+        }
+
+        .cv-card.after .cv-line {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .cv-line.short { width: 40%; }
+        .cv-line.medium { width: 70%; }
+        .cv-line.long { width: 90%; }
+
+        .cv-label {
+            position: absolute;
+            bottom: 1rem;
+            left: 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cv-card.before .cv-label {
+            color: #666;
+        }
+
+        .cv-card.after .cv-label {
+            color: var(--cream);
+        }
+
+        .transform-arrow {
+            font-size: 2.5rem;
+            color: var(--orange);
+            animation: bounce 1.5s infinite;
+            filter: drop-shadow(0 0 10px rgba(223,118,0,0.5));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .magic-sparkle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--cream);
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
         }
 
         .cta-group {
@@ -148,7 +271,7 @@
             flex-direction: column;
             gap: 1rem;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-top: 2rem;
         }
 
         @media (min-width: 640px) {
@@ -162,8 +285,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--orange);
+            color: var(--white);
             padding: 1rem 2.5rem;
             border-radius: 8px;
             font-weight: 700;
@@ -172,15 +295,15 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(201,162,39,0.3);
+            box-shadow: 0 4px 20px rgba(223,118,0,0.3);
             position: relative;
             overflow: hidden;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(201,162,39,0.4);
-            background: #d4b43a;
+            box-shadow: 0 8px 30px rgba(223,118,0,0.4);
+            background: var(--orange-light);
         }
 
         .btn-primary::after {
@@ -266,6 +389,74 @@
             margin: 0 auto;
         }
 
+        /* How It Works */
+        .how-it-works {
+            background: var(--navy-light);
+            border-top: 1px solid rgba(223,118,0,0.1);
+            border-bottom: 1px solid rgba(223,118,0,0.1);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--navy);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .process-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .process-step:hover {
+            border-color: var(--orange);
+            transform: translateY(-6px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin: 0 auto 1.25rem;
+            box-shadow: 0 4px 20px rgba(223,118,0,0.3);
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .process-step p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
         /* For/Not For Grid */
         .audience-grid {
             display: grid;
@@ -297,7 +488,7 @@
         }
 
         .audience-card:hover {
-            border-color: rgba(201,162,39,0.3);
+            border-color: rgba(223,118,0,0.3);
             transform: translateY(-4px);
         }
 
@@ -306,7 +497,7 @@
         }
 
         .audience-card.not-for {
-            border-left: 4px solid #ef4444;
+            border-left: 4px solid var(--orange-deep);
         }
 
         .audience-card h3 {
@@ -339,10 +530,10 @@
 
         .audience-card.not-for li::before {
             content: '✕';
-            color: #ef4444;
+            color: var(--orange-deep);
         }
 
-        /* What You Get */
+        /* Features Section */
         .features {
             background: var(--navy-light);
         }
@@ -378,7 +569,7 @@
         }
 
         .feature-card:hover {
-            border-color: var(--gold);
+            border-color: var(--orange);
             transform: translateY(-6px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
@@ -386,7 +577,7 @@
         .feature-icon {
             width: 60px;
             height: 60px;
-            background: rgba(201,162,39,0.1);
+            background: rgba(223,118,0,0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -414,7 +605,7 @@
 
         .urgency-badge {
             display: inline-block;
-            background: rgba(239,68,68,0.15);
+            background: rgba(211,42,0,0.15);
             color: #fca5a5;
             padding: 0.5rem 1.25rem;
             border-radius: 50px;
@@ -424,13 +615,19 @@
             animation: pulse 2s infinite;
         }
 
-        .countdown {
-            font-family: 'Inter', monospace;
-            font-size: 2.5rem;
+        .price-tag {
+            font-size: 3.5rem;
             font-weight: 800;
-            color: var(--gold);
+            color: var(--orange);
             margin: 1rem 0;
-            letter-spacing: 0.1em;
+            text-shadow: 0 0 30px rgba(223,118,0,0.3);
+        }
+
+        .price-note {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            margin-bottom: 0.5rem;
         }
 
         /* Footer CTA */
@@ -453,7 +650,7 @@
         }
 
         .terms-link a {
-            color: var(--gold-light);
+            color: var(--cream);
             text-decoration: underline;
         }
 
@@ -494,7 +691,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: var(--gold);
+            background: var(--orange);
             border-radius: 50%;
             opacity: 0.3;
             animation: float 15s infinite;
@@ -524,8 +721,37 @@
             right: 2rem;
             z-index: 100;
         }
+
+        /* Teal accent elements */
+        .teal-accent {
+            color: var(--teal);
+        }
+
+        .guarantee-box {
+            background: rgba(1,113,97,0.1);
+            border: 1px solid rgba(1,113,97,0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+        }
+
+        .guarantee-box h3 {
+            color: var(--teal);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .guarantee-box p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 0;
+        }
     </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -551,6 +777,37 @@
             <p class="hero-subtitle">
                 This system restructures your CV to meet UK hiring standards, pass ATS filters, and increase your chances of getting interview callbacks within weeks — not months.
             </p>
+
+            <!-- CV Transformation Visual -->
+            <div class="cv-transform">
+                <div class="cv-card before">
+                    <div class="cv-header"></div>
+                    <div class="cv-line long"></div>
+                    <div class="cv-line medium"></div>
+                    <div class="cv-line short"></div>
+                    <div class="cv-line long"></div>
+                    <div class="cv-line medium"></div>
+                    <div class="cv-line short"></div>
+                    <div class="cv-line long"></div>
+                    <div class="cv-label">Before</div>
+                </div>
+                
+                <div class="transform-arrow">✨</div>
+                
+                <div class="cv-card after">
+                    <div class="magic-sparkle" id="sparkles"></div>
+                    <div class="cv-header"></div>
+                    <div class="cv-line long"></div>
+                    <div class="cv-line medium"></div>
+                    <div class="cv-line short"></div>
+                    <div class="cv-line long"></div>
+                    <div class="cv-line medium"></div>
+                    <div class="cv-line short"></div>
+                    <div class="cv-line long"></div>
+                    <div class="cv-label">After</div>
+                </div>
+            </div>
+
             <div class="cta-group">
                 <a href="#pay" class="btn-primary">Start My UK Job Application</a>
                 <a href="#how" class="btn-secondary">See How It Works</a>
@@ -572,8 +829,35 @@
         </div>
     </section>
 
+    <!-- How It Works -->
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2>How It Works</h2>
+                <p>Three simple steps to transform your job search</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">1</div>
+                    <h3>Submit Your CV</h3>
+                    <p>Upload your current CV through our secure intake form. Takes less than 5 minutes.</p>
+                </div>
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">2</div>
+                    <h3>AI + Expert Analysis</h3>
+                    <p>Our system analyses your CV against UK recruiter standards and ATS requirements.</p>
+                </div>
+                <div class="process-step scroll-reveal">
+                    <div class="step-number">3</div>
+                    <h3>Receive Your Optimised CV</h3>
+                    <p>Get your restructured, keyword-optimised CV within 24 hours — ready to send.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Audience Section -->
-    <section id="how">
+    <section>
         <div class="container">
             <div class="section-header scroll-reveal">
                 <h2>Is This For You?</h2>
@@ -633,35 +917,39 @@
     <section class="urgency" id="pay">
         <div class="container">
             <div class="urgency-badge">⚡ Limited Intake — May 2026 Cohort</div>
-            <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem;">Secure Your Slot Before This Cohort Closes</h2>
-            <p style="color: var(--gray); max-width: 500px; margin: 0 auto 2rem;">
+            <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem;">Secure Your Slot Before This Cohort Closes</h2>
+            <p style="color: var(--gray); max-width: 500px; margin: 0 auto 1rem;">
                 We process a maximum of 50 CV optimisations per month to maintain quality. 
-                Current cohort: <strong style="color: var(--gold);">12 slots remaining</strong>
+                Current cohort: <strong style="color: var(--orange);">12 slots remaining</strong>
             </p>
             
-            <!-- PayFast Form -->
-            <form action="https://www.payfast.co.za/eng/process" method="post">
-                <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
-                <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
-                <input type="hidden" name="return_url" value="https://hr-mastery.github.io/uk-job-accelerator/success.html">
-                <input type="hidden" name="cancel_url" value="https://hr-mastery.github.io/uk-job-accelerator/cancel.html">
-                <input type="hidden" name="notify_url" value="https://your-server.com/notify">
-                <input type="hidden" name="amount" value="497.00">
-                <input type="hidden" name="item_name" value="UK Job Accelerator System">
-                
-                <button type="submit" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;">
-                    Start My UK Job Application — £497
-                </button>
-            </form>
+            <p class="price-note">Was £97 — Now only</p>
+            <div class="price-tag">£39</div>
+            
+            <!-- PayFast Button Placeholder -->
+            <div id="payfast-button">
+                <!-- REPLACE THIS DIV WITH YOUR PAYFAST BUTTON CODE -->
+                <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=YOUR_MERCHANT_ID&item_name=UK+Job+Accelerator&amount=39.00&return_url=https://hr-mastery.github.io/uk-job-accelerator/success.html&cancel_url=https://hr-mastery.github.io/uk-job-accelerator/cancel.html" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;">
+                    Start My UK Job Application — £39
+                </a>
+            </div>
 
-            <div class="trust-bar" style="margin-top: 2rem;">
-                <span>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            <div class="guarantee-box">
+                <h3>
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     90-Day Money-Back Guarantee
-                </span>
+                </h3>
+                <p>Apply to 21+ jobs per week using our system. If zero interviews in 90 days, full refund. No quibble.</p>
+            </div>
+
+            <div class="trust-bar" style="margin-top: 1.5rem;">
                 <span>
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                     SSL Encrypted Checkout
+                </span>
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    GDPR Compliant
                 </span>
             </div>
 
@@ -706,6 +994,17 @@
 
         setInterval(rotateHero, 5000);
 
+        // Sparkle animation for CV card
+        const sparkleContainer = document.getElementById('sparkles');
+        for (let i = 0; i < 8; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            sparkleContainer.appendChild(sparkle);
+        }
+
         // Scroll reveal animations
         const observerOptions = {
             threshold: 0.1,
@@ -720,7 +1019,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.scroll-reveal, .audience-card, .feature-card').forEach(el => {
+        document.querySelectorAll('.scroll-reveal, .audience-card, .feature-card, .process-step').forEach(el => {
             observer.observe(el);
         });
 
