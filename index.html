@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UK Job Accelerator — Land Interviews Faster</title>
+    <title>🇬🇧 UK Job Accelerator — Land Interviews Faster</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -13,7 +13,6 @@
             --orange: #df7600;
             --orange-light: #ce6901;
             --orange-deep: #d32a00;
-            --orange-bright: #d6320d;
             --teal: #017161;
             --cream: #f0d8be;
             --white: #ffffff;
@@ -359,6 +358,100 @@
             color: var(--success);
         }
 
+        /* Freebies Section - Hormozi Style */
+        .freebies {
+            background: var(--navy-light);
+            border-top: 1px solid rgba(223,118,0,0.1);
+            border-bottom: 1px solid rgba(223,118,0,0.1);
+        }
+
+        .freebies-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .freebies-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .freebie-card {
+            background: var(--navy);
+            border: 2px dashed rgba(223,118,0,0.4);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .freebie-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .freebie-card:hover {
+            border-color: var(--orange);
+            background: rgba(223,118,0,0.05);
+            transform: translateY(-4px);
+        }
+
+        .freebie-badge {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .freebie-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .freebie-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--cream);
+        }
+
+        .freebie-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .btn-free {
+            display: inline-block;
+            background: transparent;
+            color: var(--orange);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 2px solid var(--orange);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-free:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
         /* Sections */
         section {
             padding: 5rem 1.5rem;
@@ -392,8 +485,6 @@
         /* How It Works */
         .how-it-works {
             background: var(--navy-light);
-            border-top: 1px solid rgba(223,118,0,0.1);
-            border-bottom: 1px solid rgba(223,118,0,0.1);
         }
 
         .process-steps {
@@ -722,11 +813,6 @@
             z-index: 100;
         }
 
-        /* Teal accent elements */
-        .teal-accent {
-            color: var(--teal);
-        }
-
         .guarantee-box {
             background: rgba(1,113,97,0.1);
             border: 1px solid rgba(1,113,97,0.3);
@@ -751,7 +837,13 @@
             font-size: 0.9rem;
             margin: 0;
         }
+
+        .uk-flag {
+            display: inline;
+            margin-right: 0.25rem;
+        }
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -772,10 +864,10 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="badge">🇬🇧 UK Market Accelerator</div>
-            <h1>Land UK Job Interviews <span>Faster</span> — Without Guessing What Recruiters Want</h1>
+            <div class="badge"><span class="uk-flag">🇬🇧</span> UK Market Accelerator</div>
+            <h1>Land <span class="uk-flag">🇬🇧</span> UK Job Interviews <span>Faster</span> — Without Guessing What Recruiters Want</h1>
             <p class="hero-subtitle">
-                This system restructures your CV to meet UK hiring standards, pass ATS filters, and increase your chances of getting interview callbacks within weeks — not months.
+                This system restructures your CV to meet <span class="uk-flag">🇬🇧</span> UK hiring standards, pass ATS filters, and increase your chances of getting interview callbacks within weeks — not months.
             </p>
 
             <!-- CV Transformation Visual -->
@@ -809,7 +901,7 @@
             </div>
 
             <div class="cta-group">
-                <a href="#pay" class="btn-primary">Start My UK Job Application</a>
+                <a href="#pay" class="btn-primary">Start My <span class="uk-flag">🇬🇧</span> UK Job Application</a>
                 <a href="#how" class="btn-secondary">See How It Works</a>
             </div>
             <div class="trust-bar">
@@ -829,12 +921,41 @@
         </div>
     </section>
 
+    <!-- Freebies Section - Hormozi Value First -->
+    <section class="freebies">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2>Free <span class="uk-flag">🇬🇧</span> UK Job Search Resources</h2>
+                <p>Get instant value before you buy — two free guides to start winning interviews today</p>
+            </div>
+            <div class="freebies-grid">
+                <div class="freebie-card scroll-reveal">
+                    <div class="freebie-badge">FREE</div>
+                    <div class="freebie-icon">🎯</div>
+                    <h3><span class="uk-flag">🇬🇧</span> UK Interview Prep Tips 2026</h3>
+                    <p>The exact questions <span class="uk-flag">🇬🇧</span> UK recruiters ask in 2026 — and how to answer them to get hired. Covers competency frameworks, STAR method, and industry-specific prep.</p>
+                    <a href="https://form.jotform.com/261214425356048" class="btn-free">Get Free Guide →</a>
+                </div>
+                <div class="freebie-card scroll-reveal">
+                    <div class="freebie-badge">FREE</div>
+                    <div class="freebie-icon">🤝</div>
+                    <h3><span class="uk-flag">🇬🇧</span> UK Interview Etiquette 2026</h3>
+                    <p>Online & face-to-face protocols that separate hired candidates from rejected ones. Video call setup, body language, follow-up scripts, and <span class="uk-flag">🇬🇧</span> UK-specific cultural norms.</p>
+                    <a href="https://form.jotform.com/261214425356048" class="btn-free">Get Free Guide →</a>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--gray); margin-top: 2rem; font-size: 0.9rem;">
+                Join 2,400+ <span class="uk-flag">🇬🇧</span> UK job seekers who downloaded these guides last month
+            </p>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section class="how-it-works" id="how">
         <div class="container">
             <div class="section-header scroll-reveal">
                 <h2>How It Works</h2>
-                <p>Three simple steps to transform your job search</p>
+                <p>Three simple steps to transform your <span class="uk-flag">🇬🇧</span> UK job search</p>
             </div>
             <div class="process-steps">
                 <div class="process-step scroll-reveal">
@@ -845,12 +966,12 @@
                 <div class="process-step scroll-reveal">
                     <div class="step-number">2</div>
                     <h3>AI + Expert Analysis</h3>
-                    <p>Our system analyses your CV against UK recruiter standards and ATS requirements.</p>
+                    <p>Our system analyses your CV against <span class="uk-flag">🇬🇧</span> UK recruiter standards and ATS requirements.</p>
                 </div>
                 <div class="process-step scroll-reveal">
                     <div class="step-number">3</div>
                     <h3>Receive Your Optimised CV</h3>
-                    <p>Get your restructured, keyword-optimised CV within 24 hours — ready to send.</p>
+                    <p>Get your restructured, keyword-optimised CV within 24 hours — ready to send to <span class="uk-flag">🇬🇧</span> UK employers.</p>
                 </div>
             </div>
         </div>
@@ -867,10 +988,10 @@
                 <div class="audience-card for-you scroll-reveal">
                     <h3>✅ Who This Is For</h3>
                     <ul>
-                        <li>Professionals targeting UK-based roles</li>
+                        <li>Professionals targeting <span class="uk-flag">🇬🇧</span> UK-based roles</li>
                         <li>Applicants not getting interview callbacks</li>
                         <li>Candidates needing ATS-optimised CVs</li>
-                        <li>Those ready to invest in their career move</li>
+                        <li>Those ready to invest £39 in their career move</li>
                     </ul>
                 </div>
                 <div class="audience-card not-for scroll-reveal">
@@ -891,23 +1012,23 @@
         <div class="container">
             <div class="section-header scroll-reveal">
                 <h2>What You Get</h2>
-                <p>A complete system designed by 20+ years of UK recruitment experience</p>
+                <p>A complete system designed by 20+ years of <span class="uk-flag">🇬🇧</span> UK recruitment experience</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card scroll-reveal">
                     <div class="feature-icon">📋</div>
-                    <h3>UK Recruiter Standard CV</h3>
-                    <p>Restructured to match exactly what UK hiring managers scan for in the first 6 seconds</p>
+                    <h3><span class="uk-flag">🇬🇧</span> UK Recruiter Standard CV</h3>
+                    <p>Restructured to match exactly what <span class="uk-flag">🇬🇧</span> UK hiring managers scan for in the first 6 seconds</p>
                 </div>
                 <div class="feature-card scroll-reveal">
                     <div class="feature-icon">🎯</div>
                     <h3>ATS Keyword Alignment</h3>
-                    <p>Built-in keyword engine ensures your CV passes automated screening filters</p>
+                    <p>Built-in keyword engine ensures your CV passes automated screening filters used by <span class="uk-flag">🇬🇧</span> UK employers</p>
                 </div>
                 <div class="feature-card scroll-reveal">
                     <div class="feature-icon">✨</div>
                     <h3>Professional Formatting</h3>
-                    <p>Clean, scannable layout that puts your strongest evidence where recruiters look first</p>
+                    <p>Clean, scannable layout that puts your strongest evidence where <span class="uk-flag">🇬🇧</span> UK recruiters look first</p>
                 </div>
             </div>
         </div>
@@ -930,7 +1051,7 @@
             <div id="payfast-button">
                 <!-- REPLACE THIS DIV WITH YOUR PAYFAST BUTTON CODE -->
                 <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&receiver=YOUR_MERCHANT_ID&item_name=UK+Job+Accelerator&amount=39.00&return_url=https://hr-mastery.github.io/uk-job-accelerator/success.html&cancel_url=https://hr-mastery.github.io/uk-job-accelerator/cancel.html" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;">
-                    Start My UK Job Application — £39
+                    Start My <span class="uk-flag">🇬🇧</span> UK Job Application — £39
                 </a>
             </div>
 
@@ -939,7 +1060,7 @@
                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     90-Day Money-Back Guarantee
                 </h3>
-                <p>Apply to 21+ jobs per week using our system. If zero interviews in 90 days, full refund. No quibble.</p>
+                <p>Apply to 21+ jobs per week using our system. If zero interviews in 90 days, full £39 refund. No quibble.</p>
             </div>
 
             <div class="trust-bar" style="margin-top: 1.5rem;">
@@ -963,9 +1084,9 @@
     <section class="footer-cta">
         <div class="container">
             <h2>Still Have Questions?</h2>
-            <p style="color: var(--gray); margin-bottom: 1.5rem;">Chat with our AI assistant — get instant answers about the process</p>
+            <p style="color: var(--gray); margin-bottom: 1.5rem;">Chat with our AI assistant — get instant answers about the <span class="uk-flag">🇬🇧</span> UK job process</p>
             <button onclick="document.querySelector('.jotform-agent iframe').style.display='block'" class="btn-secondary">
-                💬 Ask the UK Job Advisor
+                💬 Ask the <span class="uk-flag">🇬🇧</span> UK Job Advisor
             </button>
         </div>
     </section>
@@ -973,7 +1094,7 @@
     <!-- Footer -->
     <footer>
         <p>© 2026 Digilinx Advisory, a Division of Digilinx Incorporated</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">UK Job Accelerator System — Built from 20+ years of UK talent acquisition experience</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;"><span class="uk-flag">🇬🇧</span> UK Job Accelerator System — Built from 20+ years of <span class="uk-flag">🇬🇧</span> UK talent acquisition experience</p>
     </footer>
 
     <!-- JotForm AI Agent -->
@@ -1019,7 +1140,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.scroll-reveal, .audience-card, .feature-card, .process-step').forEach(el => {
+        document.querySelectorAll('.scroll-reveal, .audience-card, .feature-card, .process-step, .freebie-card').forEach(el => {
             observer.observe(el);
         });
 
