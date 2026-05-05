@@ -21,6 +21,12 @@
       text-align: center;
     }
 
+    img {
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
     h1 {
       font-size: 32px;
     }
@@ -30,8 +36,14 @@
       margin-top: 15px;
     }
 
-    .button {
-      margin-top: 25px;
+    .small {
+      font-size: 13px;
+    }
+
+    .urgency {
+      font-size: 14px;
+      color: #b00020;
+      margin-top: 10px;
     }
 
     button {
@@ -41,15 +53,12 @@
       border: none;
       cursor: pointer;
       font-size: 16px;
+      margin-top: 20px;
     }
 
     section {
       margin-top: 50px;
       text-align: left;
-    }
-
-    ul {
-      margin-top: 10px;
     }
 
     footer {
@@ -68,37 +77,49 @@
 
   <div class="container">
 
-    <!-- HERO -->
+    <!-- HERO IMAGE -->
+    <img src="hero-1.jpg" alt="UK Job Accelerator">
+
+    <!-- HEADLINE -->
     <h1>Land UK Job Interviews Faster — Without Guessing What Recruiters Want</h1>
 
+    <!-- SUBTEXT -->
     <p>
-      This system restructures your CV to match UK hiring standards, pass ATS filters, and position you for real interview callbacks.
+      This system restructures your CV to meet UK hiring standards, pass ATS filters, and increase your chances of getting interview callbacks within weeks — not months.
     </p>
 
-    <!-- PAYMENT FORM -->
-    <div class="button">
-      <form action="https://www.payfast.co.za/eng/process" method="post">
+    <!-- URGENCY -->
+    <p class="urgency">
+      Limited intake — serious applicants only.
+    </p>
 
-        <!-- REQUIRED: REPLACE THESE -->
-        <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
-        <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
-        <input type="hidden" name="amount" value="XXX.00">
-        <input type="hidden" name="item_name" value="UK Job Accelerator">
+    <!-- PAYMENT -->
+    <form action="https://www.payfast.co.za/eng/process" method="post">
 
-        <!-- REDIRECTS -->
-        <input type="hidden" name="return_url" value="https://hr-mastery.github.io/uk-job-accelerator/success.html?paid=true">
-        <input type="hidden" name="cancel_url" value="https://hr-mastery.github.io/uk-job-accelerator/cancel.html">
+      <!-- REPLACE THESE WITH REAL VALUES -->
+      <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
+      <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
+      <input type="hidden" name="amount" value="XXX.00">
+      <input type="hidden" name="item_name" value="UK Job Accelerator">
 
-        <button type="submit">Start Application</button>
-      </form>
-    </div>
+      <!-- REDIRECTS -->
+      <input type="hidden" name="return_url" value="https://hr-mastery.github.io/uk-job-accelerator/success.html?paid=true">
+      <input type="hidden" name="cancel_url" value="https://hr-mastery.github.io/uk-job-accelerator/cancel.html">
 
-    <p style="font-size:12px;">
+      <button type="submit">Start My UK Job Application</button>
+    </form>
+
+    <!-- REASSURANCE -->
+    <p class="small">
+      Secure payment via PayFast. No subscriptions. One-time process.
+    </p>
+
+    <p class="small">
       By proceeding, you agree to our 
       <a href="terms-and-privacy.html" target="_blank">Terms & Privacy Policy</a>.
     </p>
 
-    <!-- TRUST SECTION -->
+    <!-- TRUST -->
     <section>
       <h2>Who This Is For</h2>
       <ul>
@@ -114,7 +135,7 @@
       </ul>
     </section>
 
-    <!-- SIMPLE VALUE REINFORCEMENT -->
+    <!-- VALUE -->
     <section>
       <h2>What You Get</h2>
       <ul>
