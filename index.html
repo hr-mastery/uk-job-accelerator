@@ -1,155 +1,750 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>UK Job Accelerator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Job Accelerator — Land Interviews Faster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #111d32;
+            --gold: #c9a227;
+            --gold-light: #e8d5a3;
+            --white: #ffffff;
+            --gray: #8892a0;
+            --light-gray: #f0f2f5;
+            --success: #10b981;
+        }
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #111;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    img {
-      width: 100%;
-      max-width: 800px;
-      margin-bottom: 20px;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    h1 {
-      font-size: 32px;
-    }
+        /* Hero Carousel Background */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-    p {
-      font-size: 18px;
-      margin-top: 15px;
-    }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
 
-    .small {
-      font-size: 13px;
-    }
+        .hero-bg img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 8s ease-out;
+            transform: scale(1.1);
+        }
 
-    .urgency {
-      font-size: 14px;
-      color: #b00020;
-      margin-top: 10px;
-    }
+        .hero-bg img.active {
+            opacity: 0.35;
+            transform: scale(1);
+        }
 
-    button {
-      padding: 15px 25px;
-      background: #000;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 20px;
-    }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.8) 50%, rgba(17,29,50,0.9) 100%);
+            z-index: 1;
+        }
 
-    section {
-      margin-top: 50px;
-      text-align: left;
-    }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
 
-    footer {
-      margin-top: 60px;
-      font-size: 12px;
-      text-align: center;
-    }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    a {
-      color: #000;
-    }
-  </style>
+        .badge {
+            display: inline-block;
+            background: rgba(201,162,39,0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(201,162,39,0); }
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 span {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .cta-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(201,162,39,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201,162,39,0.4);
+            background: #d4b43a;
+        }
+
+        .btn-primary::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            transform: translateX(4px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .trust-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .trust-bar span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .trust-bar svg {
+            width: 18px;
+            height: 18px;
+            color: var(--success);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 1.5rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* For/Not For Grid */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .audience-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .audience-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .audience-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .audience-card:hover {
+            border-color: rgba(201,162,39,0.3);
+            transform: translateY(-4px);
+        }
+
+        .audience-card.for-you {
+            border-left: 4px solid var(--success);
+        }
+
+        .audience-card.not-for {
+            border-left: 4px solid #ef4444;
+        }
+
+        .audience-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .audience-card ul {
+            list-style: none;
+        }
+
+        .audience-card li {
+            padding: 0.6rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .audience-card li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .audience-card.not-for li::before {
+            content: '✕';
+            color: #ef4444;
+        }
+
+        /* What You Get */
+        .features {
+            background: var(--navy-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: var(--navy);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(201,162,39,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Urgency Section */
+        .urgency {
+            text-align: center;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: rgba(239,68,68,0.15);
+            color: #fca5a5;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown {
+            font-family: 'Inter', monospace;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin: 1rem 0;
+            letter-spacing: 0.1em;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background: var(--navy-light);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-cta h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-link {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        .terms-link a {
+            color: var(--gold-light);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* JotForm AI Agent positioning */
+        .jotform-agent {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+    </style>
+<base target="_blank">
 </head>
-
 <body>
 
-  <div class="container">
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
 
-    <!-- HERO IMAGE -->
-    <img src="hero-1.jpg" alt="UK Job Accelerator">
-
-    <!-- HEADLINE -->
-    <h1>Land UK Job Interviews Faster — Without Guessing What Recruiters Want</h1>
-
-    <!-- SUBTEXT -->
-    <p>
-      This system restructures your CV to meet UK hiring standards, pass ATS filters, and increase your chances of getting interview callbacks within weeks — not months.
-    </p>
-
-    <!-- URGENCY -->
-    <p class="urgency">
-      Limited intake — serious applicants only.
-    </p>
-
-    <!-- PAYMENT -->
-    <form action="https://www.payfast.co.za/eng/process" method="post">
-
-      <!-- REPLACE THESE WITH REAL VALUES -->
-      <input type="hidden" name="merchant_id" value="30776299">
-      <input type="hidden" name="merchant_key" value="cauwyvquudys0">
-      <input type="hidden" name="amount" value="MySecurePhrase2025">
-      <input type="hidden" name="item_name" value="UK Job Accelerator">
-
-      <!-- REDIRECTS -->
-      <input type="hidden" name="return_url" value="https://hr-mastery.github.io/uk-job-accelerator/success.html?paid=true">
-      <input type="hidden" name="cancel_url" value="https://hr-mastery.github.io/uk-job-accelerator/cancel.html">
-
-      <button type="submit">Start My UK Job Application</button>
-    </form>
-
-    <!-- REASSURANCE -->
-    <p class="small">
-      Secure payment via PayFast. No subscriptions. One-time process.
-    </p>
-
-    <p class="small">
-      By proceeding, you agree to our 
-      <a href="terms-and-privacy.html" target="_blank">Terms & Privacy Policy</a>.
-    </p>
-
-    <!-- TRUST -->
-    <section>
-      <h2>Who This Is For</h2>
-      <ul>
-        <li>✔ Professionals targeting UK-based roles</li>
-        <li>✔ Applicants not getting interview callbacks</li>
-        <li>✔ Candidates needing ATS-optimised CVs</li>
-      </ul>
-
-      <h2>Who This Is NOT For</h2>
-      <ul>
-        <li>✖ Casual job browsing</li>
-        <li>✖ Non-serious applicants</li>
-      </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" id="heroBg">
+            <img src="hero-1.jpg" alt="" class="active">
+            <img src="hero-2.jpg" alt="">
+            <img src="hero-3.jpg" alt="">
+            <img src="hero-4.jpg" alt="">
+            <img src="hero-5.jpg" alt="">
+            <img src="hero-6.jpg" alt="">
+            <img src="hero-7.jpg" alt="">
+            <img src="hero-8.jpg" alt="">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="badge">🇬🇧 UK Market Accelerator</div>
+            <h1>Land UK Job Interviews <span>Faster</span> — Without Guessing What Recruiters Want</h1>
+            <p class="hero-subtitle">
+                This system restructures your CV to meet UK hiring standards, pass ATS filters, and increase your chances of getting interview callbacks within weeks — not months.
+            </p>
+            <div class="cta-group">
+                <a href="#pay" class="btn-primary">Start My UK Job Application</a>
+                <a href="#how" class="btn-secondary">See How It Works</a>
+            </div>
+            <div class="trust-bar">
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    Secure PayFast Payment
+                </span>
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    24-Hour Delivery
+                </span>
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                    One-Time Fee — No Subscriptions
+                </span>
+            </div>
+        </div>
     </section>
 
-    <!-- VALUE -->
-    <section>
-      <h2>What You Get</h2>
-      <ul>
-        <li>✔ CV structured to UK recruiter standards</li>
-        <li>✔ Keyword alignment for ATS systems</li>
-        <li>✔ Clean, professional formatting</li>
-      </ul>
+    <!-- Audience Section -->
+    <section id="how">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2>Is This For You?</h2>
+                <p>We work with serious professionals only. Limited intake each month.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card for-you scroll-reveal">
+                    <h3>✅ Who This Is For</h3>
+                    <ul>
+                        <li>Professionals targeting UK-based roles</li>
+                        <li>Applicants not getting interview callbacks</li>
+                        <li>Candidates needing ATS-optimised CVs</li>
+                        <li>Those ready to invest in their career move</li>
+                    </ul>
+                </div>
+                <div class="audience-card not-for scroll-reveal">
+                    <h3>❌ Who This Is NOT For</h3>
+                    <ul>
+                        <li>Casual job browsing without commitment</li>
+                        <li>Non-serious applicants</li>
+                        <li>Those expecting guaranteed job placement</li>
+                        <li>Applicants unwilling to complete the intake process</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2>What You Get</h2>
+                <p>A complete system designed by 20+ years of UK recruitment experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">📋</div>
+                    <h3>UK Recruiter Standard CV</h3>
+                    <p>Restructured to match exactly what UK hiring managers scan for in the first 6 seconds</p>
+                </div>
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">🎯</div>
+                    <h3>ATS Keyword Alignment</h3>
+                    <p>Built-in keyword engine ensures your CV passes automated screening filters</p>
+                </div>
+                <div class="feature-card scroll-reveal">
+                    <div class="feature-icon">✨</div>
+                    <h3>Professional Formatting</h3>
+                    <p>Clean, scannable layout that puts your strongest evidence where recruiters look first</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="urgency" id="pay">
+        <div class="container">
+            <div class="urgency-badge">⚡ Limited Intake — May 2026 Cohort</div>
+            <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem;">Secure Your Slot Before This Cohort Closes</h2>
+            <p style="color: var(--gray); max-width: 500px; margin: 0 auto 2rem;">
+                We process a maximum of 50 CV optimisations per month to maintain quality. 
+                Current cohort: <strong style="color: var(--gold);">12 slots remaining</strong>
+            </p>
+            
+            <!-- PayFast Form -->
+            <form action="https://www.payfast.co.za/eng/process" method="post">
+                <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
+                <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
+                <input type="hidden" name="return_url" value="https://hr-mastery.github.io/uk-job-accelerator/success.html">
+                <input type="hidden" name="cancel_url" value="https://hr-mastery.github.io/uk-job-accelerator/cancel.html">
+                <input type="hidden" name="notify_url" value="https://your-server.com/notify">
+                <input type="hidden" name="amount" value="497.00">
+                <input type="hidden" name="item_name" value="UK Job Accelerator System">
+                
+                <button type="submit" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;">
+                    Start My UK Job Application — £497
+                </button>
+            </form>
+
+            <div class="trust-bar" style="margin-top: 2rem;">
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    90-Day Money-Back Guarantee
+                </span>
+                <span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    SSL Encrypted Checkout
+                </span>
+            </div>
+
+            <p class="terms-link">
+                By proceeding, you agree to our <a href="terms-and-privacy.html">Terms & Privacy Policy</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p style="color: var(--gray); margin-bottom: 1.5rem;">Chat with our AI assistant — get instant answers about the process</p>
+            <button onclick="document.querySelector('.jotform-agent iframe').style.display='block'" class="btn-secondary">
+                💬 Ask the UK Job Advisor
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <p>© 2026 Digilinx Advisory</p>
+        <p>© 2026 Digilinx Advisory, a Division of Digilinx Incorporated</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">UK Job Accelerator System — Built from 20+ years of UK talent acquisition experience</p>
     </footer>
 
-  </div>
+    <!-- JotForm AI Agent -->
+    <div class="jotform-agent">
+        <script src='https://cdn.jotfor.ms/agent/embedjs/019de954df42729fa44e9d44f1af9307deae/embed.js'></script>
+    </div>
 
+    <script>
+        // Hero carousel
+        const images = document.querySelectorAll('.hero-bg img');
+        let current = 0;
+
+        function rotateHero() {
+            images[current].classList.remove('active');
+            current = (current + 1) % images.length;
+            images[current].classList.add('active');
+        }
+
+        setInterval(rotateHero, 5000);
+
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal, .audience-card, .feature-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
